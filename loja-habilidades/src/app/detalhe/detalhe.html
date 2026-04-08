@@ -1,0 +1,66 @@
+<div class="container mt-4" *ngIf="produto">
+
+  <div class="row align-items-center">
+
+    <!-- IMAGEM -->
+    <div class="col-md-6 text-center">
+      <img 
+        [src]="produto.imagem" 
+        class="img-fluid rounded shadow img-produto"
+        style="max-height: 300px; object-fit: contain;"
+      >
+    </div>
+
+    <!-- INFORMAÇÕES -->
+    <div class="col-md-6">
+
+      <!-- NOME DA HABILIDADE -->
+      <h2 class="titulo-habilidade mb-3">
+        {{produto.nome}}
+      </h2>
+
+      <!-- DESCRIÇÃO -->
+      <p class="text-apartir bg-dark p-3 rounded border border-secondary">
+        {{produto.descricao}}
+      </p>
+
+      <!-- SELEÇÃO DE IDIOMA (apenas se o produto for de idiomas) -->
+      <div class="mb-3" *ngIf="produto.tipoInput === 'dropdown'">
+        <label class="form-label fw-bold">Escolha o idioma</label>
+        <select class="form-select" [(ngModel)]="produto.idiomaSelecionado">
+          <option value="" disabled selected>Escolha um idioma</option>
+          <option *ngFor="let idioma of produto.opcoes" [value]="idioma">{{ idioma }}</option>
+        </select>
+      </div>
+
+      <!-- TEMPO -->
+      <p class="fw-bold text-apartir">Escolha o tempo de uso:</p>
+      <div class="mb-3">
+        <input type="range" 
+               min="1" max="3" step="1"
+               [(ngModel)]="tempoSelecionado"
+               class="slider-tempo">
+
+        <div class="d-flex justify-content-between mt-1">
+          <span>1h - R$ {{produto.precos[1]}}</span>
+          <span>5h - R$ {{produto.precos[5]}}</span>
+          <span>10h - R$ {{produto.precos[10]}}</span>
+        </div>
+      </div>
+
+      <!-- TOTAL -->
+      <h3 class="titulo-habilidade text-apartir mb-3">
+        💰 Total: R$ {{produto.precos[getTempo()]}}
+      </h3>
+
+      <!-- BOTÕES -->
+      <button class="btn btn-game-buy w-100" (click)="comprar()">🛒 Comprar</button>
+      <button class="btn btn-game-details w-100 mb-2" routerLink="/vitrine">
+        ← Voltar para Vitrine
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

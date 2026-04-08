@@ -1,0 +1,64 @@
+/* Fonte leve para a descrição da home */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.home-container {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.home-descricao {
+  font-family: 'Poppins', sans-serif; /* fonte leve e elegante */
+  font-size: 1.2rem;
+  color: #ffce0c;
+  margin-bottom: 30px;
+  text-shadow: 0 0 3px #ff99ff; /* sombra mais suave */
+  animation: pulseText 2s infinite alternate; /* animação mais suave */
+}
+
+@keyframes pulseText {
+  0% { text-shadow: 0 0 3px #ff99ff; }
+  100% { text-shadow: 0 0 8px #ff66ff; }
+}
+
+.cards-conceitos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card-conceito {
+  background-color: #2d2d44;
+  border: 2px solid #4db6ac;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card-conceito:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff6f61, 0 0 30px #00ffff;
+}
+
+.btn-game-home {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  color: #ffcc00;
+  text-shadow: 0 0 5px #ffcc00;
+  background-color: #7b56cf;
+  border: 2px solid #ffcc00;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-game-home:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffcc00;
+  color: #fff;
+  background-color: #ff6f61;
+}

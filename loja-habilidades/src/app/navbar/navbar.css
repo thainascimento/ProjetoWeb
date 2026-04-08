@@ -1,0 +1,22 @@
+/* Nome da loja estilo game */
+.titulo-loja {
+  font-family: 'Press Start 2P', cursive; /* fonte estilo game 8-bit */
+  font-size: 1.5rem;                       /* tamanho maior */
+  color: #ff00ff;                          /* cor neon rosa */
+  text-shadow: 
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff,
+    0 0 40px #00ffff;                     /* efeito neon colorido */
+  transition: all 0.3s ease-in-out;
+}
+
+.titulo-loja:hover {
+  color: #00ffff;                          /* muda para azul neon ao passar mouse */
+  text-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #ff00ff,
+    0 0 60px #ff00ff;
+  transform: scale(1.1) rotate(-2deg);     /* leve animação ao passar o mouse */
+}

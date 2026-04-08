@@ -1,0 +1,71 @@
+<div class="container mt-4">
+
+  <!-- TÍTULO -->
+  <h2 class="titulo-habilidade text-apartir mb-4 text-center">
+    Entre em contato conosco
+  </h2>
+
+  <!-- FORMULÁRIO -->
+  <form (ngSubmit)="enviar()">
+
+    <!-- NOME -->
+    <input 
+      [(ngModel)]="nome" 
+      name="nome" 
+      placeholder="Nome" 
+      class="form-control mb-2 input-game" 
+      required
+    >
+
+    <!-- EMAIL -->
+    <input 
+      [(ngModel)]="email" 
+      name="email" 
+      placeholder="Email" 
+      type="email" 
+      class="form-control mb-2 input-game" 
+      required
+    >
+
+    <!-- TELEFONE -->
+    <input
+    [(ngModel)]="telefone"
+    name="telefone"
+    placeholder="(11) 99999-9999"
+    class="form-control mb-2 input-game"
+    required
+    >
+      
+    
+
+    <!-- DROPDOWN -->
+    <select 
+      [(ngModel)]="tipo" 
+      name="tipo" 
+      class="form-control mb-2 input-game"
+      required
+    >
+      <option value="" disabled selected>Selecione o tipo de contato</option>
+      <option *ngFor="let t of tiposContato" [value]="t">
+        {{ t }}
+      </option>
+    </select>
+
+    <!-- MENSAGEM -->
+    <textarea 
+      [(ngModel)]="mensagem" 
+      name="mensagem" 
+      placeholder="Mensagem" 
+      rows="5" 
+      class="form-control mb-2 input-game" 
+      required
+    ></textarea>
+
+    <!-- BOTÃO -->
+    <button type="submit" class="btn btn-game-buy w-100 mt-2">
+      💌 Enviar
+    </button>
+
+  </form>
+
+</div>

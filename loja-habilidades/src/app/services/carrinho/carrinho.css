@@ -1,0 +1,149 @@
+/* -------------------- Fundo animado global -------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(-45deg, #ff0066, #00ffff, #ffcc00, #ff00ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #f0f0f0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -------------------- Navbar -------------------- */
+.navbar {
+  background-color: #6c5ce7 !important;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.navbar .navbar-brand {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2rem;
+  color: #00ffea !important;
+  text-shadow: 0 0 5px #00ffea, 0 0 15px #ff00ff, 0 0 25px #ffff00;
+  animation: titlePulse 2s infinite alternate;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'Press Start 2P', cursive;
+  color: #ffcc00 !important;
+  text-shadow: 0 0 3px #000;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00ffea !important;
+  text-shadow: 0 0 10px #00ffea, 0 0 20px #ff00ff;
+}
+
+.navbar span.me-2 {
+  font-family: 'Press Start 2P', cursive;
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff66ff, 0 0 20px #ffccff;
+  animation: userPulse 1.5s infinite alternate;
+  font-size: 1rem;
+}
+
+/* Ícones da navbar maiores */
+.navbar .btn, .navbar .nav-link {
+  font-size: 1.2rem;
+}
+
+/* -------------------- Títulos -------------------- */
+.title-game {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  color: #00ffea;
+  text-shadow: 0 0 5px #00ffea, 0 0 15px #ff00ff, 0 0 25px #ffff00;
+  text-align: center;
+  animation: titlePulse 2s infinite alternate;
+}
+
+.card-title, .detalhe-title, .busca-title {
+  font-family: 'Press Start 2P', cursive;
+  color: #00ffea;
+  text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes titlePulse {
+  0% { text-shadow: 0 0 5px #00ffea, 0 0 15px #ff00ff, 0 0 25px #ffff00; }
+  100% { text-shadow: 0 0 15px #00ffea, 0 0 30px #ff00ff, 0 0 50px #ffff00; }
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea; }
+  100% { text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea, 0 0 50px #00ffea; }
+}
+
+/* -------------------- Cards / Vitrine / Detalhes -------------------- */
+.produto-card, .detalhe-card {
+  background-color: #2d2d44;
+  border: 2px solid #4db6ac;
+  border-radius: 15px;
+  transition: transform 0.2s, box-shadow 0.3s;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+}
+
+.produto-card:hover, .detalhe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff6f61, 0 0 30px #00ffff;
+}
+
+.img-produto, .detalhe-img {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.img-produto:hover, .detalhe-img:hover {
+  transform: scale(1.1) rotate(-2deg);
+  filter: brightness(1.2);
+}
+
+/* -------------------- Botões Gamer Neon -------------------- */
+.btn-game, .btn-game-warning, .btn-game-buy, .btn-game-details, .btn-game-time {
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.btn-game-time {
+  background-color: #4db6ac;
+  color: #1b1b2f;
+  border: 2px solid #ffd700;
+}
+
+.btn-game-time.btn-selected {
+  background-color: #ff6f61;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+.btn-game-buy {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+}
+
+.btn-game-buy:hover, .btn-game-details:hover {
+  box-shadow: 0 0 10px #ffd700;
+  transform: scale(1.05);
+}
+
+.btn-game-details {
+  background-color: #4db6ac;
+  color: #fff;
+}
+
+/* -------------------- Texto A partir de -------------------- */
+.text-apartir {
+  color: #ffcc00;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}

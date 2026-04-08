@@ -1,0 +1,59 @@
+<div class="container mt-4">
+  <!-- Título da página -->
+  <h2 class="mb-4 text-center title-game">Habilidades temporárias disponíveis</h2>
+
+  <div class="row">
+    <!-- Itera sobre os produtos filtrados -->
+    <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let p of produtosFiltrados">
+      <div class="card h-100 shadow produto-card">
+
+        <!-- Imagem do produto -->
+        <img [src]="p.imagem" class="card-img-top img-produto" (click)="irDetalhe(p.id)">
+
+        <div class="card-body text-center">
+
+          <!-- Nome da habilidade -->
+          <h5 class="card-title titulo-habilidade">{{ p.nome }}</h5>
+
+          <!-- Slider de tempo/valor -->
+          <div class="mb-3">
+            <input
+              type="range"
+              class="form-range slider-tempo"
+              min="0"
+              max="2"
+              step="1"
+              [value]="tempoSelecionadoIndex[p.id]"
+              (input)="selecionarTempoIndex(p.id, $any($event.target).valueAsNumber)">
+            
+            <!-- Mostra tempo e preço de acordo com o slider -->
+            <div class="mt-1 text-light fw-bold">
+              Tempo: {{ getTempo(p) }}h - 💰 {{ getPreco(p) }}
+            </div>
+          </div>
+
+          <!-- Dropdown para selecionar idioma (aparece apenas para a habilidade de idiomas) -->
+          <div class="mb-3" *ngIf="p.tipoInput === 'dropdown'">
+            <select
+              class="form-select"
+              [(ngModel)]="p.idiomaSelecionado">
+              <option value="" disabled selected>Escolha um idioma</option>
+              <option *ngFor="let idioma of p.opcoes" [value]="idioma">{{ idioma }}</option>
+            </select>
+          </div>
+
+          <!-- Botão para adicionar ao carrinho -->
+          <button class="btn btn-game-buy w-100 mb-2" (click)="comprar(p)">
+            🛒 Comprar
+          </button>
+
+          <!-- Botão para ver detalhes do produto -->
+          <button class="btn btn-game-details w-100" (click)="irDetalhe(p.id)">
+            Ver Detalhes
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

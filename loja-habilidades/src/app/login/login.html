@@ -1,0 +1,51 @@
+<div class="container mt-4" style="max-width:400px;">
+
+  <!-- TÍTULO -->
+  <a class="navbar-brand mb-3" routerLink="/home">
+    <img 
+      src="logo.png" 
+      alt="HyperSkill"
+    >
+  </a>
+
+  <!-- FORMULÁRIO LOGIN -->
+  <form (ngSubmit)="login()" #f="ngForm">
+
+    <!-- EMAIL -->
+    <input
+      [(ngModel)]="email"
+      name="email"
+      type="email"
+      required
+      class="form-control input-game mb-3"
+      placeholder="Email"
+    />
+
+    <!-- SENHA -->
+    <input
+      [(ngModel)]="senha"
+      name="senha"
+      type="password"
+      required
+      class="form-control input-game mb-3"
+      placeholder="Senha"
+    />
+
+    <!-- BOTÃO -->
+    <button
+      type="submit"
+      [disabled]="f.invalid"
+      class="btn btn-game-buy w-100 mb-2"
+    >
+      🔐 Entrar
+    </button>
+
+  </form>
+
+  <!-- LINKS -->
+  <div class="mt-3 text-center">
+    <a routerLink="/cadastro" class="link-game me-3">Cadastrar</a>
+    <a routerLink="/esqueci-senha" class="link-game">Esqueci a senha</a>
+  </div>
+
+</div>

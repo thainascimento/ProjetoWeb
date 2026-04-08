@@ -1,0 +1,17 @@
+<div class="home-container">
+  <h1 class="title-game">Bem-vindo à HyperSkill </h1>
+  <p class="home-descricao">
+    Explore habilidades temporárias, aprenda rápido e divirta-se com nossos desafios.
+  </p>
+
+  <!-- CARDS DE CONCEITOS -->
+  <div class="cards-conceitos">
+    <div class="card-conceito" *ngFor="let c of conceitos">
+      <h2>{{ c.titulo }}</h2>
+      <p>{{ c.descricao }}</p>
+    </div>
+  </div>
+
+  <!-- BOTÃO CONTATO -->
+  <button routerLink="/contato" class="btn-game-home"> ✉️ Contato</button>
+</div>

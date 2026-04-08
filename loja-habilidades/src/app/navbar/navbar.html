@@ -1,0 +1,43 @@
+<nav class="navbar navbar-game py-3">
+
+  <!-- LOGO CENTRAL -->
+  <a class="navbar-brand mb-3" routerLink="/home">
+    <img src="logo.png" alt="HyperSkill" class="logo-navbar">
+  </a>
+
+  <!-- MENU -->
+  <div class="menu-container d-flex justify-content-between align-items-center w-100 flex-wrap px-4">
+
+    <!-- ESQUERDA: Home, Vitrine e Cesta -->
+    <div class="d-flex align-items-center gap-4">
+      <a class="nav-link" routerLink="/home">🏠 Home</a>
+      <a class="nav-link" routerLink="/vitrine">🏪 Vitrine</a>
+      <a class="nav-link" routerLink="/cesta">🛒 Cesta</a>
+    </div>
+
+    <!-- CENTRO: Campo de busca -->
+    <div class="busca-wrapper flex-grow-1 mx-3">
+      <form class="d-flex align-items-center busca-form" (ngSubmit)="buscar()">
+        <input class="form-control input-game me-2" type="search" placeholder="Buscar..." [(ngModel)]="termo" name="termo" required>
+        <button class="btn btn-game" type="submit">🔎</button>
+      </form>
+    </div>
+
+    <!-- DIREITA: Usuário e login/logout -->
+    <div class="d-flex align-items-center gap-3">
+      <ng-container *ngIf="usuario; else naoLogado">
+        <div class="user-info d-flex align-items-center gap-2">
+          <img [src]="usuario?.icone" class="icone-navbar-logged" alt="Ícone do usuário">
+          <span class="usuario-nome">{{ usuario?.nome }}</span>
+        </div>
+        <button class="btn btn-game" (click)="logout()">Logout</button>
+      </ng-container>
+
+      <ng-template #naoLogado>
+        <a routerLink="/login" class="btn btn-game">👤 Login</a>
+        <a routerLink="/cadastro" class="btn btn-game-warning">📝 Cadastro</a>
+      </ng-template>
+    </div>
+  </div>
+
+</nav>

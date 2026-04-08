@@ -1,0 +1,45 @@
+<div class="container mt-4">
+
+  <!-- TÍTULO -->
+  <h2 class="titulo-habilidade text-apartir mb-4 text-center">
+    🛒 Sua Cesta
+  </h2>
+
+  <!-- ITENS -->
+  <div *ngFor="let item of itens" class="card mb-3 p-2 produto-card">
+
+    <div class="d-flex align-items-center">
+
+      <img [src]="item.imagem" width="100" class="me-3 img-produto">
+
+      <div>
+        <h5 class="titulo-habilidade">{{item.nome}}</h5>
+        <p class="text-apartir">Tempo: {{item.tempo}}h</p>
+        <p class="text-apartir">Quantidade: {{item.qtd}}</p>
+        <p class="text-apartir fw-bold">💰 R$ {{item.precoSelecionado * item.qtd}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <hr class="border-light">
+
+  <h3 class="text-apartir mb-3">
+    Total: 💰 R$ {{total}}
+  </h3>
+
+  <!-- BOTÕES -->
+  <div class="mt-3 d-flex flex-wrap gap-2">
+
+    <button class="btn btn-game-buy me-2" (click)="finalizarCompra()">
+      ✔ Finalizar Compra
+    </button>
+
+    <button class="btn btn-game btn-game-danger" (click)="limparCarrinho()">
+      🗑 Limpar Cesta
+    </button>
+
+  </div>
+
+</div>

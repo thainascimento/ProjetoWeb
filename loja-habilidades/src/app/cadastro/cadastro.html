@@ -1,0 +1,114 @@
+<div class="container mt-4" style="max-width:400px;">
+
+  <!-- TÍTULO -->
+  <a class="navbar-brand mb-3" routerLink="/home">
+    <img 
+      src="logo.png" 
+      alt="HyperSkill"
+    >
+  </a>
+
+  <!-- FORMULÁRIO CADASTRO -->
+  <form (ngSubmit)="cadastrar()" #f="ngForm">
+
+    <!-- NOME -->
+    <input
+      [(ngModel)]="nome"
+      name="nome"
+      required
+      class="form-control input-game mb-3"
+      placeholder="Nome"
+    />
+
+    <!-- EMAIL -->
+    <input
+      [(ngModel)]="email"
+      name="email"
+      type="email"
+      required
+      class="form-control input-game mb-3"
+      placeholder="Email"
+    />
+
+    <!-- SENHA -->
+    <input
+      [(ngModel)]="senha"
+      name="senha"
+      type="password"
+      required
+      minlength="6"
+      class="form-control input-game mb-3"
+      placeholder="Senha"
+    />
+
+    <small *ngIf="senha && senha.length < 6" class="text-danger">
+      *Senha com no mínimo 6 dígitos
+    </small>
+
+    <!-- CONFIRMAR SENHA -->
+<input
+  [(ngModel)]="confirmarSenha"
+  name="confirmarSenha"
+  type="password"
+  required
+  class="form-control input-game mb-3"
+  placeholder="Confirmar Senha"
+/>
+
+<small *ngIf="senha !== confirmarSenha" class="text-danger">
+  *As senhas precisam ser iguais
+</small>
+
+    <!-- CPF -->
+<input
+  [(ngModel)]="cpf"
+  name="cpf"
+  required
+  class="form-control input-game mb-3"
+  placeholder="CPF"
+/>
+<!-- O CPF deve conter apenas números, sem pontos ou traços -->
+<small *ngIf="cpf && cpf.length < 11" class="text-danger">
+      *CPF com no mínimo 11 dígitos
+</small>
+
+<!-- ENDEREÇO -->
+<input
+  [(ngModel)]="endereco"
+  name="endereco"
+  required
+  class="form-control input-game mb-3"
+  placeholder="Endereço"
+/>
+
+<!-- ESCOLHA DE ÍCONE -->
+<label class="text-light">Escolha seu ícone:</label>
+
+<div class="d-flex gap-2 mb-3">
+  <img src="/icone1.png" width="70" (click)="selecionarIcone('/icone1.png')">
+  <img src="/icone2.png" width="70" (click)="selecionarIcone('/icone2.png')">
+  <img src="/icone3.png" width="70" (click)="selecionarIcone('/icone3.png')">
+</div>
+
+<!-- PREVIEW -->
+<div *ngIf="iconeSelecionado" class="text-center mb-2">
+  <img [src]="iconeSelecionado" width="90" style="border-radius:50%; border:2px solid #00fff7;">
+</div>
+
+    <!-- BOTÃO -->
+    <button
+      type="submit"
+      [disabled]="f.invalid"
+      class="btn btn-game-buy w-100 mt-2"
+    >
+      📝 Cadastrar
+    </button>
+
+  </form>
+
+  <!-- LINKS -->
+  <div class="mt-3 text-center">
+    <a routerLink="/login" class="link-game">Voltar para Login</a>
+  </div>
+
+</div>

@@ -1,0 +1,367 @@
+/* ==================== ESTILO GLOBAL ==================== */
+
+/* -------------------- Fonte padrão -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* -------------------- Fundo animado -------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(-45deg, #2a1a4f, #180c3f, #9494e7, #4b0f6f);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #f0f0f0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar-game {
+  background: linear-gradient(90deg, #1b1b2f, #162447);
+  border-bottom: 3px solid #8b00ff;
+  text-align: center;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* ---------------- LOGO DA LOJA ---------------- */
+.navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 100%;
+}
+
+.navbar-brand img {
+  height: 220px; /* tamanho equilibrado */
+  max-width: 450px;
+  object-fit: contain;
+  transition: transform 0.3s;
+  animation: logoGlow 2s infinite alternate;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.05);
+}
+
+.logo-navbar {
+  height: 140px; /* tamanho equilibrado */
+  max-width: 350px;
+  object-fit: contain;
+  transition: transform 0.3s;
+  animation: logoGlow 2s infinite alternate;
+}
+
+.logo-navbar:hover {
+  transform: scale(1.05);
+}
+
+@keyframes logoGlow {
+  0% { filter: drop-shadow(0 0 5px #00fff7); }
+  100% { filter: drop-shadow(0 0 20px #ff00ff); }
+}
+
+/* ---------------- LINKS ---------------- */
+.navbar-game .nav-link {
+  font-family: 'Press Start 2P', cursive;
+  color: #ffcc00 !important;
+  text-shadow: 0 0 5px #000;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.navbar-game .nav-link:hover {
+  color: #00ffea !important;
+  text-shadow: 0 0 10px #00ffea, 0 0 20px #ff66ff;
+  transform: scale(1.05);
+}
+
+/* ---------------- BOTÕES LOGIN / CADASTRO ---------------- */
+.navbar-game .btn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  color: #ffcc00;
+  text-shadow: 0 0 5px #ffcc00;
+  background-color: #7b56cf;
+  border: 2px solid #ffcc00;
+  transition: all 0.3s;
+}
+
+.navbar-game .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ffcc00;
+  color: #fff;
+  background-color: #ff6f61;
+}
+
+/* ---------------- USUÁRIO ---------------- */
+.usuario-nome {
+  font-family: 'Press Start 2P', cursive;
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff;
+  animation: userPulse 1.5s infinite alternate;
+  margin-left: 10px;
+}
+
+@keyframes userPulse {
+  0% { text-shadow: 0 0 5px #ff00ff; }
+  100% { text-shadow: 0 0 15px #ff66ff; }
+}
+
+/* ---------------- ÍCONE DO USUÁRIO LOGADO ---------------- */
+/* ÍCONE DO USUÁRIO LOGADO */
+/* ÍCONE DO USUÁRIO LOGADO */
+.icone-navbar-logged {
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+  min-height: 70px !important;
+  max-width: 70px !important;
+  max-height: 70px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  border: 2px solid #00fff7 !important;
+  box-shadow: 0 0 5px #00fff7 !important;
+  flex-shrink: 0;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.icone-navbar-logged:hover {
+  transform: scale(1.1);
+}
+/* ---------------- BUSCA ---------------- */
+.busca-form {
+  width: 100%;
+  max-width: 670px;
+  display: flex;
+}
+
+.busca-form input {
+  flex: 1;
+  height: 45px;
+  font-size: 0.9rem;
+  border-radius: 20px 0 0 20px;
+  padding-left: 15px;
+  border: 2px solid #00ffff;
+  background-color: #a05ea8;
+  color: #f0f0f0;
+}
+
+.busca-form button {
+  height: 45px;
+  min-width: 60px;
+  border-radius: 0 20px 20px 0;
+  background-color: #00ffff;
+  color: #1b1b2f;
+  font-weight: bold;
+  border: 2px solid #00ffff;
+  transition: all 0.3s;
+}
+
+.busca-form button:hover {
+  background-color: #ff6f61;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+/* ==================== TÍTULOS ==================== */
+.title-game {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  color: #00ffea;
+  text-align: center;
+  text-shadow: 0 0 5px #00ffea, 0 0 15px #ff00ff, 0 0 25px #ffff00;
+  animation: titlePulse 2s infinite alternate;
+}
+
+@keyframes titlePulse {
+  0% { text-shadow: 0 0 5px #00ffea, 0 0 15px #ff00ff, 0 0 25px #ffff00; }
+  100% { text-shadow: 0 0 15px #00ffea, 0 0 30px #ff00ff, 0 0 50px #ffff00; }
+}
+
+/* ==================== CARDS DE PRODUTOS ==================== */
+.produto-card {
+  background-color: #2d2d44;
+  border: 2px solid #4db6ac;
+  border-radius: 15px;
+  transition: transform 0.2s, box-shadow 0.3s;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #ff6f61, 0 0 30px #00ffff;
+}
+
+.img-produto {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.img-produto:hover {
+  transform: scale(1.1) rotate(-2deg);
+  filter: brightness(1.2);
+}
+
+/* ---------------- TÍTULOS DENTRO DOS CARDS ---------------- */
+.titulo-habilidade {
+  color: #fff01b;
+  text-shadow: 0 0 5px #f88d29fd, 0 0 10px #ec8e41, 0 0 20px #f85b2b;
+  animation: pulse 1.5s infinite alternate;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.titulo-habilidade:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff66ff, 0 0 50px #ffccff;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea; }
+  100% { text-shadow: 0 0 15px #00ffea, 0 0 30px #00ffea, 0 0 50px #00ffea; }
+}
+
+/* ---------------- TEXTO DE PREÇO ---------------- */
+.text-apartir {
+  color: #ffcc00;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* ==================== BOTÕES GERAIS ==================== */
+.btn-game, .btn-game-warning, .btn-game-buy, .btn-game-details, .btn-game-time {
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+/* BOTÕES TEMPO */
+.btn-game-time {
+  background-color: #4db6ac;
+  color: #1b1b2f;
+  border: 2px solid #ffd700;
+}
+
+.btn-game-time.btn-selected {
+  background-color: #ff6f61;
+  color: #fff;
+  box-shadow: 0 0 10px #ffd700;
+}
+
+/* BOTÃO COMPRAR */
+.btn-game-buy {
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+}
+
+.btn-game-buy:hover {
+  box-shadow: 0 0 10px #ffd700;
+  transform: scale(1.05);
+}
+
+/* BOTÃO DETALHES */
+.btn-game-details {
+  background-color: #4db6ac;
+  color: #fff;
+}
+
+.btn-game-details:hover {
+  box-shadow: 0 0 10px #ffd700;
+  transform: scale(1.05);
+}
+
+/* SELECT */
+select.input-game {
+  background-color: #2d2d44;
+  color: #fff;
+}
+
+/* ==================== SLIDER DE TEMPO ==================== */
+.slider-tempo {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f3311f, #20ffe9);
+  outline: none;
+  transition: background 0.3s;
+  box-shadow: 0 0 5px #ff3c2b, 0 0 10px #28f1dd;
+}
+
+.slider-tempo:hover {
+  background: linear-gradient(90deg, #e04436, #23f7c9);
+}
+
+.slider-tempo::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffcc00;
+  border: 2px solid #ff00ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ffcc00;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.slider-tempo::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #ff00ff, 0 0 25px #ffcc00;
+}
+
+.slider-tempo::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffcc00;
+  border: 2px solid #ff00ff;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff00ff, 0 0 20px #ffcc00;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.slider-tempo::-moz-range-track {
+  height: 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f11b08, #10e2cd);
+}
+
+/* ==================== FONTES ESPECÍFICAS PARA TEXTOS ==================== */
+.cesta-titulo, .cesta-total, .cesta-info,
+.detalhe-nome, .detalhe-descricao, .detalhe-tempo, .detalhe-total {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+/* ==================== RESPONSIVO ==================== */
+@media (max-width: 768px) {
+  .navbar-brand img { height: 120px; max-width: 250px; }
+  .icone-navbar-logged { width: 30px; height: 30px; min-width: 30px; min-height: 30px; }
+  .menu-container { flex-direction: column; gap: 15px; }
+  .busca-wrapper { width: 100%; }
+  .busca-form { max-width: 100%; }
+  .navbar-game .nav-link { font-size: 0.7rem; }
+  .title-game { font-size: 2rem; }
+  .cesta-titulo, .cesta-total, .cesta-info,
+  .detalhe-nome, .detalhe-descricao, .detalhe-tempo, .detalhe-total { font-size: 0.9rem; }
+}
