@@ -115,8 +115,8 @@ export class Busca implements OnInit {
     this.router.navigate(['/contato']);
   }
 
-  // Volta para a vitrine principal
+  // Volta para a vitrine
   voltar() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/vitrine']);
   }
 }

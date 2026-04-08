@@ -9,17 +9,17 @@ import { usuarioCadastrado } from '../usuario/usuario';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  // 🔥 Guarda o usuário logado atual
+  // Guarda o usuário logado atual
   // Começa como null (ninguém logado)
   // Qualquer componente pode "escutar" mudanças aqui (ex: Navbar)
   usuarioLogado$ = new BehaviorSubject<any>(null);
 
   constructor() {
-    // 🧠 Ao criar o serviço, já inicializamos para recuperar usuário do localStorage
+    // Ao criar o serviço, já inicializamos para recuperar usuário do localStorage
     this.init();
   }
 
-  // 📝 Inicializa o usuário logado, se houver no localStorage
+  // Inicializa o usuário logado, se houver no localStorage
   init() {
     const usuario = localStorage.getItem('usuarioLogado');
 
@@ -31,7 +31,7 @@ export class AuthService {
     }
   }
 
-  // 🔐 FUNÇÃO DE LOGIN
+  //  FUNÇÃO DE LOGIN
   login(email: string, senha: string): boolean {
     // Procura na lista de usuários alguém com o mesmo email e senha
     const usuario = usuarioCadastrado.find(
@@ -53,7 +53,7 @@ export class AuthService {
     return false; // login falhou
   }
 
-  // 🚪 LOGOUT
+  // LOGOUT
   logout() {
     // Remove o usuário logado do BehaviorSubject (fica null)
     this.usuarioLogado$.next(null);
@@ -62,7 +62,7 @@ export class AuthService {
     localStorage.removeItem('usuarioLogado');
   }
 
-  // 📝 FUNÇÃO DE CADASTRO
+  // FUNÇÃO DE CADASTRO
   cadastrar(
     nome: string,
     email: string,

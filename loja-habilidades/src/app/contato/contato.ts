@@ -29,7 +29,7 @@ export class Contato {
   nome = ''; 
   email = '';
   telefone = '';
-  tipo = ''; // 🔥 esse é um novo campo que indica o tipo de contato
+  tipo = ''; // esse é um novo campo que indica o tipo de contato
   mensagem = '';
 
   // Aqui eu criei um array com os tipos de contato que a pessoa pode escolher
