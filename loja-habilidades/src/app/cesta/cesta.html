@@ -2,7 +2,7 @@
 
   <!-- TÍTULO -->
   <h2 class="titulo-habilidade text-apartir mb-4 text-center">
-    🛒 Sua Cesta
+    Sua Cesta
   </h2>
 
   <!-- ITENS -->
@@ -16,7 +16,7 @@
         <h5 class="titulo-habilidade">{{item.nome}}</h5>
         <p class="text-apartir">Tempo: {{item.tempo}}h</p>
         <p class="text-apartir">Quantidade: {{item.qtd}}</p>
-        <p class="text-apartir fw-bold">💰 R$ {{item.precoSelecionado * item.qtd}}</p>
+        <p class="text-apartir fw-bold"> R$ {{item.precoSelecionado * item.qtd}}</p>
       </div>
 
     </div>
@@ -33,11 +33,11 @@
   <div class="mt-3 d-flex flex-wrap gap-2">
 
     <button class="btn btn-game-buy me-2" (click)="finalizarCompra()">
-      ✔ Finalizar Compra
+       Finalizar Compra
     </button>
 
     <button class="btn btn-game btn-game-danger" (click)="limparCarrinho()">
-      🗑 Limpar Cesta
+      Limpar Cesta
     </button>
 
   </div>

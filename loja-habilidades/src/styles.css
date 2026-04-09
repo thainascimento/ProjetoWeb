@@ -356,7 +356,7 @@ select.input-game {
 /* ==================== RESPONSIVO ==================== */
 @media (max-width: 768px) {
   .navbar-brand img { height: 120px; max-width: 250px; }
-  .icone-navbar-logged { width: 30px; height: 30px; min-width: 30px; min-height: 30px; }
+  .icone-navbar-logged { width: 45px; height: 45px; min-width: 45px; min-height: 45px; }
   .menu-container { flex-direction: column; gap: 15px; }
   .busca-wrapper { width: 100%; }
   .busca-form { max-width: 100%; }
@@ -364,4 +364,102 @@ select.input-game {
   .title-game { font-size: 2rem; }
   .cesta-titulo, .cesta-total, .cesta-info,
   .detalhe-nome, .detalhe-descricao, .detalhe-tempo, .detalhe-total { font-size: 0.9rem; }
+}
+
+/* (CSS puro - não é Bootstrap) */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  /* Classe sua */
+  .menu-container {
+    flex-direction: column; /* CSS puro */
+    gap: 15px;
+  }
+
+  /* Classe sua */
+  .busca-wrapper {
+    width: 100%;
+  }
+
+  .busca-form {
+    max-width: 100%;
+  }
+
+  /* Ajuste da logo */
+  .navbar-brand img {
+    height: 120px;
+    max-width: 250px;
+  }
+
+  /* Ícone usuário */
+  .icone-navbar-logged {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* d-flex é do Bootstrap → você está sobrescrevendo comportamento */
+  .produto-card .d-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+
+  .title-game {
+    font-size: 2rem;
+  }
+
+  .titulo-habilidade {
+    font-size: 12px;
+  }
+
+  /* .btn é do Bootstrap */
+  /* botoes de acao */
+.btn-game-buy,
+.btn-game-details,
+.btn-game-warning {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+  .produto-card {
+    padding: 10px;
+  }
+
+  .img-produto {
+    max-height: 180px;
+    object-fit: contain;
+  }
+}
+
+/* rodapé */
+/* Classe criada por mim(não é Bootstrap) */
+.footer-game {
+  background: linear-gradient(90deg, #1b1b2f, #162447);
+  border-top: 3px solid #8b00ff;
+
+  padding: 20px;
+  margin-top: 40px;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7rem;
+
+  color: #ffcc00;
+  text-shadow: 0 0 5px #000;
+}
+
+/* Responsivo (CSS) */
+@media (max-width: 576px) {
+  .footer-game {
+    font-size: 0.5rem;
+    padding: 15px;
+  }
 }
