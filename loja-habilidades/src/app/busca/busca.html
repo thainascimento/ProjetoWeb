@@ -1,11 +1,13 @@
 <div class="container mt-4">
 
-  <!-- TÍTULO -->
+  <!-- ==================== TÍTULO ==================== -->
   <h2 class="title-game text-center mb-4">
     🔍 Buscar Habilidades
   </h2>
 
-  <!-- Input de busca local -->
+  <!-- ==================== INPUT DE BUSCA ==================== -->
+  <!-- ngModel liga o input com a variável "termo" do TS -->
+  <!-- (input) chama a função pesquisar() a cada tecla digitada -->
   <input
     [(ngModel)]="termo"
     (input)="pesquisar()"
@@ -13,26 +15,35 @@
     placeholder="Digite o nome da habilidade"
   />
 
-  <!-- Resultados encontrados -->
+  <!-- ==================== RESULTADOS ==================== -->
+  <!-- Só aparece se houver resultados -->
   <div *ngIf="resultados.length > 0" class="row">
 
+    <!-- Loop que percorre cada produto encontrado -->
     <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let p of resultados">
 
       <div class="card h-100 shadow produto-card">
 
-        <!-- IMAGEM -->
-        <img [src]="p.imagem" class="card-img-top img-produto">
+        <!-- IMAGEM DO PRODUTO -->
+        <!-- Ao clicar na imagem, navega para a página de detalhes -->
+         <img 
+         [src]="p.imagem" 
+         class="card-img-top img-produto"
+         (click)="irDetalhe(p.id)"
+         style="cursor: pointer;"
+         >
 
         <div class="card-body text-center">
 
-          <!-- NOME DA HABILIDADE -->
+          <!-- NOME -->
           <h5 class="titulo-habilidade">{{p.nome}}</h5>
 
-          <!-- VALORES -->
+          <!-- PREÇO -->
           <p class="text-apartir">Valores:</p>
           <h4 class="text-success">💰 {{ getPreco(p) }}</h4>
 
-          <!-- TEMPOS -->
+          <!-- ==================== TEMPO ==================== -->
+          <!-- Botões gerados dinamicamente (1h, 5h, 10h) -->
           <div class="mb-3 d-flex justify-content-center">
             <button *ngFor="let t of tempos" 
                     class="btn me-2 btn-game-time"
@@ -42,15 +53,19 @@
             </button>
           </div>
 
-          <!-- DROPDOWN DE IDIOMAS (somente para habilidade de idiomas) -->
+          <!-- ==================== DROPDOWN DE IDIOMA ==================== -->
+          <!-- Só aparece para a habilidade de idiomas -->
           <div *ngIf="p.nome === 'Fale qualquer idioma fluentemente'" class="mb-3">
+            
+            <!-- ngModel salva o idioma escolhido dentro do próprio produto -->
             <select [(ngModel)]="p.idiomaSelecionado" class="form-select">
               <option value="" disabled selected>Escolha um idioma</option>
               <option *ngFor="let idioma of p.opcoes">{{ idioma }}</option>
             </select>
+
           </div>
 
-          <!-- BOTÃO DE COMPRAR -->
+          <!-- ==================== BOTÃO COMPRAR ==================== -->
           <button class="btn btn-game-buy w-100 mb-2" (click)="comprar(p)">
             🛒 Comprar
           </button>
@@ -63,7 +78,7 @@
 
   </div>
 
-  <!-- Nenhum resultado -->
+  <!-- ==================== SEM RESULTADOS ==================== -->
   <div *ngIf="resultados.length === 0 && termo" class="text-center mt-3">
     <p class="text-danger mb-1">
       Nenhuma habilidade encontrada para "<strong>{{ termo }}</strong>".
@@ -71,6 +86,51 @@
     <p class="text-apartir mb-2">Deseja fazer uma sugestão de habilidade?</p>
     <button class="btn btn-game-warning me-2 mb-2" (click)="sugestao()">Sim, quero sugerir</button>
     <button class="btn btn-game-details mb-2" (click)="voltar()">Não, voltar para vitrine</button>
+  </div>
+
+</div>
+
+<!-- ==================== MODAL PERSONALIZADA ==================== -->
+<!-- Aparece quando mostrarModal = true -->
+<div class="modal-overlay" *ngIf="mostrarModal">
+
+  <div class="modal-game">
+
+    <!-- Título -->
+    <h3 class="titulo-habilidade">
+      🛒 Produto adicionado!
+    </h3>
+
+    <!-- Nome do produto -->
+    <p class="text-apartir">
+      {{ produtoSelecionado?.nome }}
+    </p>
+
+    <!-- Preço -->
+    <p class="text-apartir">
+      💰 R$ {{ produtoSelecionado?.precoSelecionado }}
+    </p>
+
+    <!-- Pergunta -->
+    <p class="text-apartir">
+      Deseja continuar comprando?
+    </p>
+
+    <!-- Botões -->
+    <div class="d-flex justify-content-center gap-3 mt-3">
+
+      <!-- Fecha modal -->
+      <button class="btn btn-game-buy" (click)="continuarCompra()">
+        Continuar
+      </button>
+
+      <!-- Vai para cesta -->
+      <button class="btn btn-game-details" (click)="irParaCesta()">
+        Ir para cesta
+      </button>
+
+    </div>
+
   </div>
 
 </div>

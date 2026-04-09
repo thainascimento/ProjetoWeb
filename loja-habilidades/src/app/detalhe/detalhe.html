@@ -64,3 +64,30 @@
   </div>
 
 </div>
+
+<!-- ==================== MODAL PERSONALIZADA ==================== -->
+<div class="modal-overlay" *ngIf="mostrarModal">
+  <div class="modal-game">
+
+    <h3 class="titulo-habilidade">🛒 Produto adicionado!</h3>
+
+    <p class="text-apartir">
+      {{ produtoSelecionado?.nome }} foi adicionado à cesta!
+    </p>
+
+    <!-- Mostra idioma se existir -->
+    <p class="text-apartir" *ngIf="produtoSelecionado?.idiomaSelecionado">
+      🌍 Idioma: {{ produtoSelecionado.idiomaSelecionado }}
+    </p>
+
+    <p class="text-apartir">
+      Deseja continuar comprando?
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <button class="btn btn-game-buy" (click)="continuarCompra()">Sim</button>
+      <button class="btn btn-game-details" (click)="irParaCesta()">Ir para cesta</button>
+    </div>
+
+  </div>
+</div>
